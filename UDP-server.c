@@ -17,8 +17,8 @@ void DieWithError(const char *errorMessage)
 int main(int argc, char** argv)
 {
   int sock;                             //Socket
-  struct sockadder_in echoServAddr;     //local address
-  struct sockadder_in echoClntAddr;     //client address
+  struct sockaddr_in echoServAddr;     //local address
+  struct sockaddr_in echoClntAddr;     //client address
   unsigned int cliAddrLen;              //length of incoming message
   char echoBuffer[ECHOMAX];             //buffer for echo string
   unsigned short echoServPort;          //server port
