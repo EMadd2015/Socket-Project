@@ -33,7 +33,7 @@ int main(int argc, char** argv)
   echoServPort = atoi(argv[1]); //First argument: local port
   
   //create socket for sending/recieving message
-  if((sock = socket(PF_INET, SCOK_DGRAM, IPPROTO_UDP)) < 0)
+  if((sock = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP)) < 0)
   {
       DieWithError("socket() failed");
   }
@@ -49,10 +49,10 @@ int main(int argc, char** argv)
       DieWithError("bind() failed");
   }
   
-  while(true)   //should loop forever
+  while(1)   //should loop forever
   {
       //set size of the in-out parameter
-      cliAddrLen = sizeOf(echoClntAddr);
+      cliAddrLen = sizeof(echoClntAddr);
       
       //block until receive message from client
       if((recvMsgSize = recvfrom(sock, echoBuffer, ECHOMAX, 0, (struct sockaddr*) &echoClntAddr, &cliAddrLen)) < 0)
@@ -63,7 +63,7 @@ int main(int argc, char** argv)
       printf("Handling client %s\n", inet_ntoa(echoClntAddr.sin_addr));
       
       //send recived datagram back to the client
-      if(sendto(sock, echoBuffer, recvMsgSize, 0, (struct sockaddr*) &echoClntAddr, sizeOf(echoClntAddr)) != recvMsgSize)
+      if(sendto(sock, echoBuffer, recvMsgSize, 0, (struct sockaddr*) &echoClntAddr, sizeof(echoClntAddr)) != recvMsgSize)
       {
           DieWithError("sendto() sent a different number of bytes than expected");
       }
