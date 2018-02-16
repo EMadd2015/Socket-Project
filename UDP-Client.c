@@ -28,7 +28,7 @@ int start_client(int argc, char** argv)
   
   if((argc < 3) || (argc > 4))
   {
-    fprintf(stderr, "Usage: %s <Server IP> <Echo Word> [<Echo Port>\n", argv[0]);
+    fprintf(stderr, "Usage: %s <Server IP> <Echo Word> [<Echo Port>]\n", argv[0]);
     exit(1);
   }
   
