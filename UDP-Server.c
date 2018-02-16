@@ -1,6 +1,6 @@
-#include <std.io>
 #include <sys/socket.h>
 #include <arpa/inet.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
@@ -67,8 +67,5 @@ int main(int argc, char** argv)
       {
           DieWithError("sendto() sent a different number of bytes than expected");
       }
-      
-     }
   } 
-
 }

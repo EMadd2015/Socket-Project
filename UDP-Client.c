@@ -1,6 +1,6 @@
-#include <std.io>
 #include <sys/socket.h>
 #include <arpa/inet.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
@@ -67,7 +67,7 @@ int main(int argc, char** argv)
   fromSize = sizeof(fromAddr);
   if((respStringLen = recvfrom(sock, echoBuffer, ECHOMAX, 0, (struct sockaddr*) &fromAddr, &fromSize)) != echoStringLen)
   {
-    DieWitheError(recvfrom() failed");
+    DieWitheError("recvfrom() failed");
   }
   
   if(echoServAddr.sin_addr.s_addr != fromAddr.sin_addr.s_addr)
