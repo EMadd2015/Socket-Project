@@ -28,7 +28,7 @@ int main(int argc, char** argv)
   
   if((argc < 3) || (argc > 4))
   {
-    fprintf(stderr, "Usage: %s <Server IP> <Echo Word> [<Echo Port>\n", argc[0]);
+    fprintf(stderr, "Usage: %s <Server IP> <Echo Word> [<Echo Port>\n", argv[0]);
     exit(1);
   }
   
@@ -67,7 +67,7 @@ int main(int argc, char** argv)
   fromSize = sizeof(fromAddr);
   if((respStringLen = recvfrom(sock, echoBuffer, ECHOMAX, 0, (struct sockaddr*) &fromAddr, &fromSize)) != echoStringLen)
   {
-    DieWitheError("recvfrom() failed");
+    DieWithError("recvfrom() failed");
   }
   
   if(echoServAddr.sin_addr.s_addr != fromAddr.sin_addr.s_addr)
