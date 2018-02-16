@@ -13,7 +13,7 @@ void DieWithError(const char* errorMessage)
   exit(1);
 }
 
-int main(int argc, char** argv)
+int start_client(int argc, char** argv)
 {
   int sock;
   struct sockaddr_in echoServAddr;
