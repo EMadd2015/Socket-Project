@@ -14,7 +14,7 @@ void DieWithError(const char *errorMessage)
   exit(1);
 }
 
-int main(int argc, char** argv)
+int start_server(int argc, char** argv)
 {
   int sock;                             //Socket
   struct sockaddr_in echoServAddr;     //local address
