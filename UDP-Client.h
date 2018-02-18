@@ -12,4 +12,4 @@
 #endif /* UDP_CLIENT_H_ */
 
 void DieWithError(const char* errorMessage);
-int start_client(int argc, char** argv);
+int start_client(char* serverIP, char* string, char* port);

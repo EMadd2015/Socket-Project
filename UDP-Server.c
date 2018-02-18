@@ -14,7 +14,7 @@ void DieWithError(const char *errorMessage)
   exit(1);
 }
 
-int start_server(int argc, char** argv)
+int start_server(char* port)
 {
   int sock;                             //Socket
   struct sockaddr_in echoServAddr;     //local address
@@ -23,14 +23,16 @@ int start_server(int argc, char** argv)
   char echoBuffer[ECHOMAX];             //buffer for echo string
   unsigned short echoServPort;          //server port
   int recvMsgSize;                      //size of recieved message
-  
+
+  /*
   if (argc != 2)      //test for correct number of parameters
   {
       fprintf(stderr, "Usage: %s <UDP SERVER PORT>\n", argv[0]);
       exit(1);
   }
+  */
   
-  echoServPort = atoi(argv[1]); //First argument: local port
+  echoServPort = atoi(port); //First argument: local port
   
   //create socket for sending/recieving message
   if((sock = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP)) < 0)

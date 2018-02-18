@@ -13,7 +13,7 @@ void DieWithError(const char* errorMessage)
   exit(1);
 }
 
-int start_client(int argc, char** argv)
+int start_client(char* serverIP, char* string, char* port)
 {
   int sock;
   struct sockaddr_in echoServAddr;
@@ -26,14 +26,16 @@ int start_client(int argc, char** argv)
   char* servIP;
   char* echoString;
   
+  /**
   if((argc < 3) || (argc > 4))
   {
     fprintf(stderr, "Usage: %s <Server IP> <Echo Word> [<Echo Port>]\n", argv[0]);
     exit(1);
   }
+  *//
   
-  servIP = argv[1];
-  echoString = argv[2];
+  servIP = serverIP;
+  echoString = string;
   
   if((echoStringLen = strlen(echoString)) > ECHOMAX)
   {
@@ -42,7 +44,7 @@ int start_client(int argc, char** argv)
   
   if(argc == 4)
   {
-    echoServPort = atoi(argv[3]);
+    echoServPort = atoi(port);
   }
   else
   {
