@@ -10,7 +10,7 @@
 
 class Miner {
 public:
-	Miner();
+	Miner(); // should start client, and register with server.
 	virtual ~Miner();
 
 };
