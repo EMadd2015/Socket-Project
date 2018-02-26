@@ -42,10 +42,10 @@ in main(int argc, char** argv)
       DieWithError("socket() failed");
     }
 
-    memset(&echoServAddr, 0, sizeof(echoServAddr));
-    echoServAddr.sin_family = AF_INET;
-    echoServAddr.sin_addr.s_addr = inet_addr(servIP);
-    echoServAddr.sin_port = htons(echoServPort);
+      memset(&echoServAddr, 0, sizeof(echoServAddr));   // Zero out structure 
+      echoServAddr.sin_family = AF_INET;                // Internet address family 
+      echoServAddr.sin_addr.s_addr = htonl(INADDR_ANY); // Any incoming interface 
+      echoServAddr.sin_port = htons(echoServPort);      // Local port  
 
     if(connect(sock, (struct sockaddr*) &echoServAddr, sizeof(echoServAddr)) < 0)
     {
