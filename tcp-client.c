@@ -16,10 +16,7 @@
 #define ECHOMAX 255             /* Longest string to echo */
 #define BACKLOG 128
 
-void DieWithError(const char *errorMessage) { /* External error handling function */
-        perror(errorMessage);
-        exit(1);
-}
+void DieWithError(const char *errorMessage);
 
 void str_cli(FILE *fp, int sockfd) {
 	ssize_t n;
