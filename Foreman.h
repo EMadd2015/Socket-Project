@@ -8,7 +8,7 @@
 #ifndef FOREMAN_H_
 #define FOREMAN_H_
 
-#include <tcp-server.c>
+#include "TCPServer.c"
 
 class Foreman {
 public:

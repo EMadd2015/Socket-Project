@@ -8,8 +8,8 @@
 #include "Miner.h"
 
 Miner::Miner() {
-	// TODO Auto-generated constructor stub
-
+	// test
+	start_client('127.0.0.1', 'hello world!', 1080);
 }
 
 Miner::~Miner() {

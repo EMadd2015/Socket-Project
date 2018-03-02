@@ -8,11 +8,12 @@
 #ifndef MINER_H_
 #define MINER_H_
 
+#include "TCPClient.h"
+
 class Miner {
 public:
 	Miner();
 	virtual ~Miner();
-
 };
 
 #endif /* MINER_H_ */
