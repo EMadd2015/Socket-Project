@@ -1,3 +1,5 @@
+#include "TCPServer.h"
+
 void DieWithError(const char *errorMessage)
 {
   perror(errorMessage);

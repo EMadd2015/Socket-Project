@@ -1,3 +1,5 @@
+#include "TCPClient.h"
+
 void DieWithError(const char* errorMessage)
 {
   perror(errorMessage);
@@ -18,7 +20,9 @@ int start_client(char* ip, char* string, int port)
     
     servIP = ip;
     echoString = string;
+    echoServPort = port;
     
+    /*
     if(argc == 4)
     {
       echoServPort = port;
@@ -27,6 +31,7 @@ int start_client(char* ip, char* string, int port)
     {
       echoServPort = 7;
     }
+    */
 
     if((sock = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP)) < 0)
     {

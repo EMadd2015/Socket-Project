@@ -16,6 +16,6 @@ Foreman::~Foreman() {
 }
 
 int query() {}
-int reg(std::string username, std::string address, int port, int coins) {}
-int dereg(std::string username) {}
+int reg(char* username, char* address, int port, int coins) {}
+int dereg(char* username) {}
 int save() {}

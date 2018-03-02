@@ -19,6 +19,6 @@
 
 void DieWithError(const char *errorMessage);
 void HandleTCPClient(int clntSocket);
-int start_server(int port);
+extern "C" int start_server(int port);
 
 #endif /* TCPSERVER_H_ */

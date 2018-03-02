@@ -9,7 +9,7 @@
 
 Miner::Miner() {
 	// test
-	start_client('127.0.0.1', 'hello world!', 1080);
+	start_client("127.0.0.1", "hello world!", 1080);
 }
 
 Miner::~Miner() {
