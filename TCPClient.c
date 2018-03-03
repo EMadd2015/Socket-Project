@@ -1,6 +1,6 @@
 #include "TCPClient.h"
 
-void DieWithError(const char* errorMessage)
+void ClientDieWithError(const char* errorMessage)
 {
   perror(errorMessage);
   exit(1);
@@ -35,7 +35,7 @@ int start_client(char* ip, char* string, int port)
 
     if((sock = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP)) < 0)
     {
-      DieWithError("socket() failed");
+      ClientDieWithError("socket() failed");
     }
 
     memset(&echoServAddr, 0, sizeof(echoServAddr));
@@ -45,14 +45,14 @@ int start_client(char* ip, char* string, int port)
 
     if(connect(sock, (struct sockaddr*) &echoServAddr, sizeof(echoServAddr)) < 0)
     {
-        DieWithError("recvfrom() failed");
+        ClientDieWithError("recvfrom() failed");
     }
 
     echoStringLen = strlen(echoString);
     
     if(send(sock, echoString, echoStringLen, 0) != echoStringLen)
     {
-        DieWithError("sendto() sent a different umber of bytes than expected");      
+        ClientDieWithError("sendto() sent a different umber of bytes than expected");
     }
 
     totalBytesRcv = 0;
@@ -63,7 +63,7 @@ int start_client(char* ip, char* string, int port)
     {
         if((bytesRcv = recv(sock, echoBuffer, RCVBUFSIZE - 1, 0)) <= 0)
         {
-            DieWithError("recv() failed or connection closed prematurely");
+            ClientDieWithError("recv() failed or connection closed prematurely");
         }
         totalBytesRcv += bytesRcv;
         

@@ -14,6 +14,7 @@ class Miner {
 public:
 	Miner();
 	virtual ~Miner();
+	int init();
 };
 
 #endif /* MINER_H_ */

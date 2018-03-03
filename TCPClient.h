@@ -17,7 +17,7 @@
 
 #define RCVBUFSIZE 32
 
-void DieWithError(const char* errorMessage);
-extern "C" int start_client(char* ip, char* string, int port);
+void ClientDieWithError(const char* errorMessage);
+int start_client(char* ip, char* string, int port);
 
 #endif /* TCPCLIENT_H_ */

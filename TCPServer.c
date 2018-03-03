@@ -1,6 +1,6 @@
 #include "TCPServer.h"
 
-void DieWithError(const char *errorMessage)
+void ServerDieWithError(const char *errorMessage)
 {
   perror(errorMessage);
   exit(1);
@@ -39,7 +39,7 @@ int start_server(int port)
     
     if ((servSock = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP)) < 0)
     {
-        DieWithError("socket() failed");
+        ServerDieWithError("socket() failed");
     }
     
       memset(&echoServAddr, 0, sizeof(echoServAddr));   // Zero out structure 
@@ -50,13 +50,13 @@ int start_server(int port)
       //bind to the local address
       if(bind(servSock, (struct sockaddr*) &echoServAddr, sizeof(echoServAddr)) < 0)
       {
-          DieWithError("bind() failed");
+          ServerDieWithError("bind() failed");
       }
       
       //mark the socket to listen for incoming connections
       if(listen(servSock, MAX) < 0)
       {
-        DieWithError("listen() failed");
+        ServerDieWithError("listen() failed");
       }
       
       while(1)
@@ -65,7 +65,7 @@ int start_server(int port)
           
           if((clntSock = accept(servSock, (struct sockaddr*) &echoClntAddr, &clntLen)) < 0)
           {
-              DieWithError("accept() failed");
+              ServerDieWithError("accept() failed");
           }
           
           printf("Handling client %s\n", inet_ntoa(echoClntAddr.sin_addr));

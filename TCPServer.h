@@ -17,8 +17,8 @@
 
 #define MAX 5 // why five?
 
-void DieWithError(const char *errorMessage);
+void ServerDieWithError(const char *errorMessage);
 void HandleTCPClient(int clntSocket);
-extern "C" int start_server(int port);
+int start_server(int port);
 
 #endif /* TCPSERVER_H_ */
