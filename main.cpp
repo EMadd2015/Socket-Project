@@ -14,8 +14,8 @@ int main(int argc, char* argv[]) {
 	Foreman *foreman = new Foreman();
 	Miner *miner = new Miner();
 
-	pthread_create(&threadID, NULL, &Foreman::init, NULL);
-	pthread_create(&threadID, NULL, &Miner::init, NULL);
+	pthread_create(&threadID, NULL, (void*)&Foreman::init, NULL);
+	pthread_create(&threadID, NULL, (void*)&Miner::init, NULL);
 
 	pthread_exit(NULL);
 }
