@@ -15,7 +15,7 @@ Foreman::~Foreman() {
 	// TODO Auto-generated destructor stub
 }
 
-int init() {
+void *init() {
 	start_server(1080);
 }
 int query() {}

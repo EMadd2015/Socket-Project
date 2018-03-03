@@ -11,11 +11,14 @@
 
 int main(int argc, char* argv[]) {
 	pthread_t threadID;
+	void (*functionPointer)(void*);
 	Foreman *foreman = new Foreman();
 	Miner *miner = new Miner();
 
-	pthread_create(&threadID, NULL, (void*)&Foreman::init, NULL);
-	pthread_create(&threadID, NULL, (void*)&Miner::init, NULL);
+	functionPointer = Foreman::init;
+	pthread_create(&threadID, NULL, functionPointer, NULL);
+	functionPointer = Miner::init;
+	pthread_create(&threadID, NULL, functionPointer, NULL);
 
 	pthread_exit(NULL);
 }
