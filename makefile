@@ -1,5 +1,5 @@
 demo:   Foreman.o Miner.o
-        g++ main.cpp Foreman.o Miner.o -o run
+        g++ -lpthread main.cpp Foreman.o Miner.o -o run
 
 Foreman.o: TCPServer.o
         g++  Foreman.cpp TCPServer.o
