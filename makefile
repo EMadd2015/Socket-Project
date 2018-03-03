@@ -1,11 +1,11 @@
-demo:   Foreman.o Miner.o
-        g++ -lpthread main.cpp Foreman.o Miner.o -o run
+demo:   Foreman.o Miner.o TCPServer.o TCPClient.o
+        g++ -lpthread main.cpp Foreman.o Miner.o TCPServer.o TCPClient.o -o run
 
-Foreman.o: TCPServer.o
-        g++  Foreman.cpp TCPServer.o
+Foreman.o:
+        g++ -c Foreman.cpp
 
-Miner.o: TCPClient.o
-        g++  Miner.cpp TCPClient.o
+Miner.o:
+        g++ -c Miner.cpp
 
 TCPServer.o:
         g++ -c TCPServer.c
