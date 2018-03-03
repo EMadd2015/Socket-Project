@@ -15,7 +15,7 @@
 #include  <string.h>
 #include  <unistd.h>
 
-#define MAX 5 // why five?
+#define MAX 5 // maximum outstanding connection requests
 
 void ServerDieWithError(const char *errorMessage);
 void HandleTCPClient(int clntSocket);
