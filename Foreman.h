@@ -15,7 +15,7 @@ class Foreman {
 public:
 	Foreman();
 	virtual ~Foreman();
-	void *init();
+	static void *init_server(void*);
 	int query();
 	int reg(char* username, char* address, int port, int coins);
 	int dereg(char* username);

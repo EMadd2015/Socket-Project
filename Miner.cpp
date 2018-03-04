@@ -15,7 +15,7 @@ Miner::~Miner() {
 	// TODO Auto-generated destructor stub
 }
 
-void *init() {
+Miner::init_client(void* unused) {
 	// test
 	start_client("127.0.0.1", "hello world!", 1080);
 }

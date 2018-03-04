@@ -15,8 +15,8 @@ int start_client(char* ip, char* string, int port)
     unsigned int echoStringLen;
     int bytesRcv;
     int totalBytesRcv;
-    char* servIP;
-    char* echoString;
+    const char* servIP;
+    const char* echoString;
     
     servIP = ip;
     echoString = string;
