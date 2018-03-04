@@ -14,7 +14,7 @@ class Miner {
 public:
 	Miner();
 	virtual ~Miner();
-	static void *init_client(void*);
+	static void *init_client(void* unused);
 };
 
 #endif /* MINER_H_ */
