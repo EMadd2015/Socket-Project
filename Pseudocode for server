@@ -1,0 +1,91 @@
+//struct for miners
+struct miners {
+	char* username;
+	char* address;
+	int port;
+	int coins;
+};
+
+int query() {
+	
+	int count = 0;
+	FILE *infile;
+	struct miners input;
+
+	//Open file to read
+	infile = fopen("file-name.txt", "r");
+	
+	if(infile == NULL)
+	{
+		return count;
+	}
+	
+ /*code to chek through the miners*/
+ while(miners != NULL)
+    count++;
+  
+return count;
+}
+
+int save() {
+	FILE* outfile;
+
+	//open file for writing
+	outfile = fopen("file-name.txt", "w");
+
+	if(outfile == NULL)
+	{
+		fprintf(stderr, "\nError open file\n");
+		exit(1);
+	}
+	
+	//obtain miners (needs work)
+	struct miners input;
+
+	
+	//write struct to file
+	fwrite(&input, sizeof(struct miners), 1, outfile);
+
+	if(fwrite != 0)
+		printf("contents to file written succesfully!\n");
+	else
+		printf("Error writing file!\n");	
+	
+	return 0;
+}
+
+int reg(char* name, char* ipadress, int portnum, int coin) {
+	
+	struct miners input;
+
+  /*code to check through some list of miners*/
+  
+	//sets the miner structure to the values if miner does not exist
+	input.username = name;
+	input.address = ipaddress;
+	input.port = portnum;
+	input.coins = coin;	
+
+}
+
+int dereg(char* name) {
+	struct miners input;
+  
+    /*code to check through some list of miners*/
+  
+  //delete the miner
+  input.username = NULL;
+	input.address = NULL;
+	input.port = 0;
+	input.coins = 0;	
+	
+		
+}
+
+int main() {
+
+/* TCP SERVER CODE */
+
+//switch case to use each function
+
+}
