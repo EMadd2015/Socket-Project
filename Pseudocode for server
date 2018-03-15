@@ -106,28 +106,33 @@ int dereg(char* name) {
 
 int main() {
 
-/* TCP SERVER CODE */
+	/* TCP SERVER CODE */
+	
+	int timestamp = 0;
+	
+	//initialize the semaphore
+	sem_init(&semaphore, 0, 1);
 
-//initialize the semaphore
-sem_init(&semaphore, 0, 1);
+	pthread_t *thread;
 
-pthread_t *thread;
+	thread = (pthread_t *)malloc(sizeof(*thread));
 
-thread = (pthread_t *)malloc(sizeof(*thread));
+	//start thread
+	pthread_create(thread, NULL, (void*)threadfunction, NULL);
 
-//start thread
-pthread_create(thread, NULL, (void*)threadfunction, NULL);
+	//gain input for name, ip address, port number, and coins
+	reg(name, ipadress, portnum, coin);
 
-//gain input for name, ip address, port number, and coins
-reg(name, ipadress, portnum, coin);
-
-sem_wait(&semaphore);
-
-/*code to send messages*/
-
-
-//switch case to use each function
-//gain input for each function
-
-return 0;
+	sem_wait(&semaphore);
+	
+	//switch case to use each function
+	switch(choice) {
+	//gain input for each function
+	
+	/*code to send messages to client*/
+		timestamp++; //increment timestamp
+	printf(/*message received from client*/);
+	}
+	
+	return 0;
 }
