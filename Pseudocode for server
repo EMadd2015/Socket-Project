@@ -9,6 +9,14 @@ struct miners {
 	int coins;
 };
 
+struct message {
+	char* src;
+	char* dest;
+	char* msg;
+	int id;
+	int type;
+};
+
 int query() {
 	
 	int count = 0;
