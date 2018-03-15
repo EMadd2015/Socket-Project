@@ -1,3 +1,6 @@
+/* #includes go here */
+
+
 //struct for miners
 struct miners {
 	char* username;
