@@ -1,5 +1,16 @@
 /* #includes go here */
 
+sem_t semaphore; //this will be used for the logical clock
+
+void threadfunction() {
+	//looping loop to wait and signal for critical sections, this will be used for clocking
+	while(1) 
+	{
+		sem_wait(&semaphore);
+		sem_post(&semaphore);
+		sleep(1);
+	}
+}
 
 //struct for miners
 struct miners {
@@ -97,6 +108,26 @@ int main() {
 
 /* TCP SERVER CODE */
 
-//switch case to use each function
+//initialize the semaphore
+sem_init(&semaphore, 0, 1);
 
+pthread_t *thread;
+
+thread = (pthread_t *)malloc(sizeof(*thread));
+
+//start thread
+pthread_create(thread, NULL, (void*)threadfunction, NULL);
+
+//gain input for name, ip address, port number, and coins
+reg(name, ipadress, portnum, coin);
+
+sem_wait(&semaphore);
+
+/*code to send messages*/
+
+
+//switch case to use each function
+//gain input for each function
+
+return 0;
 }
